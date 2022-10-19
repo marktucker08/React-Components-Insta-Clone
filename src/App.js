@@ -19,7 +19,7 @@ const App = () => {
   // To make the search bar work (which is stretch) we'd need another state to hold the search term.
 
   const [posts, setPosts] = useState(dummyData);
-  const [searchTerm, setSearchTerm] = useState("")
+  const [searchTerm, setSearchTerm] = useState("");
 
   const likePost = postId => {
     /*
@@ -34,11 +34,11 @@ const App = () => {
         - otherwise just return the post object unchanged.
      */
     
-    const newLikes = posts.map(id => {
-      if (id === postId) {
-          return id; // {...id, likes: likes + 1};
+    const newLikes = posts.map(post => {
+      if (post.id === postId) {
+          return {...post, likes: post.likes + 1};
       } else {
-      return id;
+      return post;
       }  
     })
     setPosts(newLikes);
